@@ -54,6 +54,7 @@ app.createContext = function(req, res) {
   let ctx = Object.create(this.context);
   ctx.app = this;
   ctx.req = req;
+  ctx.req.ip = req.address.address;
   ctx.res = res;
   ctx.onerror = ctx.onerror.bind(ctx);
   return ctx;
