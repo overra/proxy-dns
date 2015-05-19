@@ -1,0 +1,29 @@
+{
+  "name": "proxy-dns",
+  "version": "0.0.1",
+  "description": "dns proxy framework",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/northshorenetworks/proxy-dns.git"
+  },
+  "keywords": [
+    "dns",
+    "proxy"
+  ],
+  "author": "Adam Snodgrass <overra@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/northshorenetworks/proxy-dns/issues"
+  },
+  "homepage": "https://github.com/northshorenetworks/proxy-dns#readme",
+  "dependencies": {
+    "co": "^4.5.4",
+    "koa-compose": "^2.3.0",
+    "lodash.defaults": "^3.1.1",
+    "native-dns": "^0.7.0"
+  }
+}
