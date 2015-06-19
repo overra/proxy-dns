@@ -14,7 +14,7 @@
     "dns",
     "proxy"
   ],
-  "author": "Adam Snodgrass <overra@gmail.com>",
+  "author": "Northshore Network Solutions LLC <info@northshoresoftware.com>",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/northshorenetworks/proxy-dns/issues"
