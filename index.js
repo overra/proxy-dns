@@ -15,7 +15,7 @@ function ProxyDNS(config) {
 
   let defaultConfig = {
     servers: [
-      {address: '8.8.4.4'}, 
+      {address: '8.8.4.4'},
       {address: '8.8.8.8'}
     ],
     timeout: 250
@@ -35,8 +35,8 @@ app.use = function(fn) {
 app.listen = function() {
   let server = dns.createServer();
   server.on('request', this.callback());
-  server.on('error', function(err) { console.log(err.stack); });
-  return server.serve.apply(server, arguments);
+  server.serve.apply(server, arguments);
+  return server;
 };
 
 app.callback = function() {
