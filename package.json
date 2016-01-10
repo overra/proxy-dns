@@ -34,7 +34,6 @@
     "babel-preset-stage-0": "^6.3.13",
     "coveralls": "^2.11.2",
     "expect.js": "^0.3.1",
-    "istanbul-harmony": "^0.3.15",
     "mocha": "^2.2.5",
     "nyc": "^5.3.0"
   }
