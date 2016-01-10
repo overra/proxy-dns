@@ -3,7 +3,7 @@
 let dns = require('native-dns');
 let compose = require('koa-compose');
 let co = require('co');
-let context = require('./lib/context');
+let context = require('./context');
 let defaults = require('lodash.defaults')
 
 let app = ProxyDNS.prototype;
