@@ -53,8 +53,8 @@ export default class ProxyDNS {
   }
 }
 
-function *respond(next) {
-  yield *next;
+export function *respond(next) {
+  yield next;
 
   if (this.res.answer.length === 0) {
     this.resolve();
