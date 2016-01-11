@@ -1,6 +1,6 @@
 {
   "name": "proxy-dns",
-  "version": "0.0.2",
+  "version": "1.0.0",
   "description": "dns proxy framework",
   "main": "index.js",
   "scripts": {
