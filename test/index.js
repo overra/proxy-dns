@@ -3,28 +3,27 @@
 import dgram from 'dgram';
 import ProxyDNS, {respond} from '../src';
 import expect from 'expect.js';
-import co from 'co';
 
 // Begin Unit Tests
-describe("ProxyDNS", function () {
+describe('ProxyDNS', function () {
   var app = new ProxyDNS()
 
-  function* middleware(next) {}
+  function* middleware() {}
 
-  describe("#use", function () {
+  describe('#use', function () {
     app.use(middleware)
       it('should append a middleware function', function () {
         expect(app.middleware.slice(-1)[0]).to.be(middleware)
       });
    });
 
-   describe("#requestHandler", function () {
+   describe('#requestHandler', function () {
      it('should return a request callback function', function () {
        expect(app.requestHandler()).to.be.a('function');
      });
    })
 
-   describe("#listen", function () {
+   describe('#listen', function () {
      var server;
      it('should change the bind state to 1', function () {
        server = app.listen(5354);
@@ -36,11 +35,15 @@ describe("ProxyDNS", function () {
 
 describe('respond', function () {
   let self = {
-    resolve: function () { this.resolved = true; },
+    resolve: function () {
+      this.resolved = true;
+    },
     resolved: false,
     res: {
       answer: [],
-      send: function () { this.sent = true; return this.answer; },
+      send: function () {
+        this.sent = true; return this.answer;
+      },
       sent: false
     }
   };
