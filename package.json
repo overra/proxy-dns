@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "nyc --require babel-core/register mocha && nyc report --reporter=lcov && cat ./coverage/lcov.info | coveralls",
-    "build": "babel -d lib src"
+    "build": "babel -d lib src",
+    "prepublish": "npm run build"
   },
   "repository": {
     "type": "git",
