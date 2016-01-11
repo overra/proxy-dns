@@ -12,7 +12,7 @@
     "preversion": "npm run clean && npm run check",
     "postversion": "git push && git push --tags && npm run clean",
     "test": "nyc --require babel-core/register mocha",
-    "test:cov": "npm run test && nyc report --reporter=lcov && codeclimate-test-reporter < ./coverage/lcov.info"
+    "coverage": "npm run test && nyc report --reporter=text-lcov | coveralls"
   },
   "repository": {
     "type": "git",
@@ -42,8 +42,7 @@
     "babel-plugin-add-module-exports": "^0.1.2",
     "babel-preset-es2015-node4": "^2.0.2",
     "babel-preset-stage-0": "^6.3.13",
-    "codeclimate-test-reporter": "^0.1.1",
-    "coveralls": "^2.11.2",
+    "coveralls": "^2.11.6",
     "eslint": "^1.10.3",
     "expect.js": "^0.3.1",
     "mocha": "^2.2.5",

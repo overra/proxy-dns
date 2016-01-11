@@ -1,8 +1,5 @@
 language: node_js
 node_js:
   - "4.1"
-script:
-  - npm run test:cov
-addons:
-    code_climate:
-        repo_token: e329315c48441e8cf8839d00e01c89544f3a4ba2bd5a1189e37a36407f4c01e6
+after_success:
+  - npm run coverage
