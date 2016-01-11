@@ -12,7 +12,7 @@
     "preversion": "npm run clean && npm run check",
     "postversion": "git push && git push --tags && npm run clean",
     "test": "nyc --require babel-core/register mocha",
-    "test:cov": "nyc report --reporter=lcov && cat ./coverage/lcov.info | codeclimate-test-reporter"
+    "test:cov": "npm run test && nyc report --reporter=lcov && cat ./coverage/lcov.info | codeclimate-test-reporter"
   },
   "repository": {
     "type": "git",
