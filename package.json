@@ -16,18 +16,20 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/northshorenetworks/proxy-dns.git"
+    "url": "git+https://github.com/RegulateDNS/proxy-dns.git"
   },
   "keywords": [
     "dns",
     "proxy"
   ],
-  "author": "Northshore Network Solutions LLC <info@northshoresoftware.com>",
+  "contributors": [
+    "Adam Snodgrass <overra@gmail.com>"
+  ],
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/northshorenetworks/proxy-dns/issues"
+    "url": "https://github.com/RegulateDNS/proxy-dns/issues"
   },
-  "homepage": "https://github.com/northshorenetworks/proxy-dns#readme",
+  "homepage": "https://github.com/RegulateDNS/proxy-dns#readme",
   "dependencies": {
     "co": "^4.5.4",
     "koa-compose": "^2.3.0",
