@@ -4,9 +4,15 @@
   "description": "dns proxy framework",
   "main": "index.js",
   "scripts": {
-    "test": "nyc --require babel-core/register mocha && nyc report --reporter=lcov && cat ./coverage/lcov.info | coveralls",
     "build": "babel -d lib src",
-    "prepublish": "npm run build"
+    "check": "npm run lint && npm run test",
+    "clean": "rimraf lib coverage",
+    "lint": "eslint src test",
+    "prepublish": "run run clean && npm run build",
+    "preversion": "npm run clean && npm run check",
+    "postversion": "git push && git push --tags && npm run clean",
+    "test": "nyc --require babel-core/register mocha",
+    "test:cov": "nyc report --reporter=lcov && cat ./coverage/lcov.info | coveralls"
   },
   "repository": {
     "type": "git",
