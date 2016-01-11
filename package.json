@@ -2,7 +2,7 @@
   "name": "proxy-dns",
   "version": "1.0.1",
   "description": "dns proxy framework",
-  "main": "index.js",
+  "main": "lib/index.js",
   "scripts": {
     "build": "babel -d lib src",
     "check": "npm run lint && npm run test",
