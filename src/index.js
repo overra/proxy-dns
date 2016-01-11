@@ -4,9 +4,12 @@ import dns from 'native-dns';
 import compose from 'koa-compose';
 import co from 'co';
 import context from './context';
+import {EventEmitter} from 'events';
 
-export default class ProxyDNS {
+export default class ProxyDNS extends EventEmitter {
   constructor(config={}) {
+    super();
+    
     let defaultConfig = {
       servers: [
         {address: '8.8.4.4'},

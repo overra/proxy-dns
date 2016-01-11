@@ -18,7 +18,7 @@ function answer(type, answer) {
 }
 
 function onerror(err) {
-  console.error(err.stack);
+  this.emit('error', err);
   this.res.header.rcode = consts.NAME_TO_RCODE.SERVFAIL;
   this.res.send();
 }
