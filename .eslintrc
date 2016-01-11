@@ -1,0 +1,19 @@
+{
+  "parser": "babel-eslint",
+  "extends": "eslint:recommended",
+  "env": {
+    "node": true,
+    "es6": true
+  },
+  "rules": {
+    "strict": [2, "global"],
+    "quotes": [2, "single"],
+    "semi-spacing": 2,
+    "no-sync": 2,
+    "block-spacing": [2, "always"],
+    "brace-style": [2, "1tbs"],
+    "comma-spacing": 2,
+    "no-spaced-func": 2,
+    "no-trailing-spaces": [2, {"skipBlankLines": true}]
+  }
+}
