@@ -8,7 +8,7 @@
     "check": "npm run lint && npm run test",
     "clean": "rimraf lib coverage",
     "lint": "eslint src test",
-    "prepublish": "run run clean && npm run build",
+    "prepublish": "npm run clean && npm run build",
     "preversion": "npm run clean && npm run check",
     "postversion": "git push && git push --tags && npm run clean",
     "test": "nyc --require babel-core/register mocha",
