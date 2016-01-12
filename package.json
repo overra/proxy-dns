@@ -5,6 +5,7 @@
   "main": "lib/index.js",
   "scripts": {
     "build": "babel -d lib src",
+    "watch": "npm run build -- --watch",
     "check": "npm run lint && npm run test",
     "clean": "rimraf lib coverage",
     "lint": "eslint src test",
