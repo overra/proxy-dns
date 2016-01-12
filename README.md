@@ -21,17 +21,20 @@ Currently only supported on node.js v4.x+ due to the use of some ES2015 features
 ```js
 import ProxyDNS from 'proxy-dns';
 
-const dns = new ProxyDNS();
+const dns = new ProxyDNS({
+  ttl: 600
+});
 
 dns.use(function* (next) {
   if (this.domain === 'reddit.com') {
-    this.answer('A', {name: this.domain, address: '127.0.0.1', ttl: 100});
+    this.answers = [
+      '127.0.0.1'
+    ];
   }
   yield next;
 });
 
 dns.listen(53);
-
 ```
 
 ## Running tests
