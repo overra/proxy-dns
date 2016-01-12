@@ -1,6 +1,6 @@
 'use strict';
 
-import dns from 'native-dns';
+import dns, {consts} from 'native-dns';
 import compose from 'koa-compose';
 import co from 'co';
 import context from './context';
@@ -15,7 +15,8 @@ export default class ProxyDNS extends EventEmitter {
         {address: '8.8.4.4'},
         {address: '8.8.8.8'}
       ],
-      timeout: 250
+      timeout: 250,
+      ttl: 600
     };
 
     this.config = {...defaultConfig, ...config};
@@ -52,13 +53,40 @@ export default class ProxyDNS extends EventEmitter {
     ctx.res = res;
     ctx.ip = req.address.address;
     ctx.domain = req.question[0].name;
+    ctx.type = consts.QTYPE_TO_NAME[req.question[0].type];
+    ctx.answers = [];
     ctx.onerror = ::ctx.onerror;
     return ctx;
   }
 }
 
+export const buildAnswer = function(answer) {
+  let out = {
+    name: this.domain,
+    ttl: this.app.config.ttl
+  };
+
+  if (typeof answer === 'string') {
+    out.address = answer;
+  } else {
+    out = {
+      ...out,
+      ...answer
+    };
+  }
+
+  return dns[this.type](out);
+}
+
 export function *respond(next) {
   yield next;
+
+  if (this.answers && Array.isArray(this.answers)) {
+    this.res.answer = [
+      ...this.res.answer,
+      ...this.answers.map(this::buildAnswer)
+    ];
+  }
 
   if (this.res.answer.length === 0) {
     this.resolve();
