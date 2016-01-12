@@ -9,7 +9,7 @@ import {EventEmitter} from 'events';
 export default class ProxyDNS extends EventEmitter {
   constructor(config={}) {
     super();
-    
+
     let defaultConfig = {
       servers: [
         {address: '8.8.4.4'},
@@ -49,8 +49,9 @@ export default class ProxyDNS extends EventEmitter {
     let ctx = Object.create(this.context);
     ctx.app = this;
     ctx.req = req;
-    ctx.req.ip = req.address.address;
     ctx.res = res;
+    ctx.ip = req.address.address;
+    ctx.domain = req.question[0].name;
     ctx.onerror = ::ctx.onerror;
     return ctx;
   }
