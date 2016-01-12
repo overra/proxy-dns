@@ -18,7 +18,7 @@ Currently only supported on node.js v4.x+ due to the use of some ES2015 features
 
 ## Example
 
-```
+```js
 import ProxyDNS from 'proxy-dns';
 
 const dns = new ProxyDNS();
